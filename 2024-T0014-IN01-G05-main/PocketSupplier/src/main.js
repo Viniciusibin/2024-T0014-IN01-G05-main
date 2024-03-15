@@ -17,7 +17,6 @@ class CenaTeste extends Phaser.Scene {
         this.load.image('balaoFala','assets/balao.png')
         this.load.image('letraE','assets/letraE.png')
         this.load.image('letraE2', 'assets/letraE2.png')
-        this.load.image('fotoTata', 'assets/fotoTata.png')
         this.load.image('tata2', 'assets/tata_720.png')
     }
 
@@ -159,7 +158,7 @@ class CenaTeste extends Phaser.Scene {
         //adicionando dialogo
         gameState.dialogoIndex = 0; // Índice para controlar qual texto do diálogo será exibido
         
-        gameState.balaoFala = this.add.image( 500, 375, "balaoFala").setScale(0.5);
+        gameState.balaoFala = this.add.image( 500, 327, "balaoFala").setScale(0.5);
         
         gameState.balaoFala.visible = false; // Inicialmente, o balão de fala não deve ser visível
         
@@ -176,8 +175,6 @@ class CenaTeste extends Phaser.Scene {
             
             
         ];
-        this.add.image(370,340, 'fotoTata').setScale(0.5)
-
     gameState.letraE.setInteractive();
    
     gameState.letraE.on("pointerdown", () => {
@@ -186,7 +183,7 @@ class CenaTeste extends Phaser.Scene {
         // Se o texto do diálogo não estiver visível, mostre o balão de fala e o primeiro texto
         gameState.balaoFala.visible = true;
         gameState.textoDialogo.visible = true;
-        gameState.textoDialogo.setText(gameState.dialogos[dialogoIndex]); // Define o primeiro texto do diálogo
+        gameState.textoDialogo.setText(gameState.dialogos[gameState.dialogoIndex]); // Define o primeiro texto do diálogo
     } else {
         // Se o texto do diálogo já estiver visível, apenas atualize o texto para o próximo na lista
         gameState.dialogoIndex = (gameState.dialogoIndex + 1) % gameState.dialogos.length; // Avança para o próximo texto na lista circularmente
