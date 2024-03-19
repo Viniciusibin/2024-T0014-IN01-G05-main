@@ -172,8 +172,7 @@ class CenaTeste extends Phaser.Scene {
             "Antes disso vou te dar algumas instruções \n de como avaliar um fornecedor baseado em sua Segurança \n e privacidade, Atividades Políticas e Anticorrupção,\n Reputação da marca e Netzero & Saúde Ambiental",
             "Primeiramente vamos falar sobre Segurança e privacidade - Para garantir segurança e privacidade, uma empresa deve ter firewalls, criptografia e sistemas de autenticação robustos, junto com políticas claras de acesso e treinamento para funcionários.",
             "Além disso, é crucial ter políticas de privacidade transparentes, práticas responsáveis de coleta e armazenamento de dados, consentimento informado e minimização de dados para proteger informações confidenciais.",
-            
-            
+                
         ];
     gameState.letraE.setInteractive();
    
@@ -244,6 +243,17 @@ class CenaTeste extends Phaser.Scene {
                 // Se o texto do diálogo já estiver visível, apenas atualize o texto para o próximo na lista
                 gameState.textoDialogo.setText(gameState.dialogos[gameState.dialogoIndex]); // Atualiza o texto do diálogo
                 gameState.dialogoIndex = (gameState.dialogoIndex + 1) % gameState.dialogos.length; // Avança para o próximo texto na lista circularmente
+                if (gameState.dialogoIndex === gameState.dialogos.length - 1) {
+                    // Se o último texto do diálogo for exibido, destrua o balão de fala
+                    
+                    gameState.balaoFala.visible = false;
+                    gameState.textoDialogo.visible = false;
+                    gameState.letraE.visible = false
+                    gameState.letraE2.visible = false
+                    gameState.letraE3.visible = false
+                    clearInterval(gameState.letraEInterval);
+                    clearInterval(gameState.letraEInterval2);
+                }
             }
     }
     

@@ -15,7 +15,7 @@ var config = {
     },
   },
   // Definição dos nomes das cenas
-  scene: [CenaTeste, TelaInicial, TelaJogo, Privacy, Political, Brand, Netzero],
+  scene: [ CenaTeste, Privacy, Political, Brand, Netzero],
 };
 // Configuração padrão do Phaser para a configuração de um novo jogo
 var game = new Phaser.Game(config);

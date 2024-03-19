@@ -294,6 +294,7 @@ class Brand extends Phaser.Scene {
       setTimeout(tempoDecong, 1600);
       this.formulário_3.destroy();
       this.formAberto_3.destroy();
+      this.destruido = this.destruido + 1;
     });
 
     // Quando o formulário_4 encostar no Lixo
@@ -304,6 +305,7 @@ class Brand extends Phaser.Scene {
       setTimeout(tempoDecong, 1600);
       this.formulário_4.destroy();
       this.formAberto_4.destroy();
+      this.destruido = this.destruido + 1;
     });
 
     // Quando o formulário_1 encostar no Aprovado
@@ -314,6 +316,7 @@ class Brand extends Phaser.Scene {
       setTimeout(tempoDecong, 1600);
       this.formulário_1.destroy();
       this.formAberto_1.destroy();
+      this.destruido = this.destruido + 1;
     });
 
     // Quando o formulário_2 encostar no Aprovado
@@ -324,6 +327,7 @@ class Brand extends Phaser.Scene {
       setTimeout(tempoDecong, 1600);
       this.formulário_2.destroy();
       this.formAberto_2.destroy();
+      this.destruido = this.destruido + 1;
     });
 
     // Quando o formulário_3 encostar no Aprovado
@@ -548,6 +552,9 @@ class Brand extends Phaser.Scene {
       this.formulário_4.setScale(0.32);
       this.formAberto_4.setVisible(false);
       this.formulário_4.setVisible(true);
+    }
+    if (this.destruido === 4) {
+      this.scene.start("Netzero")
     }
 
     // Reinicia a variável de controle do formAberto_4 após um curto período de tempo

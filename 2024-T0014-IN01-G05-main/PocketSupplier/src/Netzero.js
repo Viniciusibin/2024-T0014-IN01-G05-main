@@ -43,6 +43,7 @@ class Netzero extends Phaser.Scene {
 
     // Variavél para conferir se ta destruido os formulários
     this.destruido = 0;
+    
   }
 
   preload() {
@@ -277,6 +278,7 @@ class Netzero extends Phaser.Scene {
       setTimeout(tempoDecong, 1600);
       this.formulário_1.destroy();
       this.formAberto_1.destroy();
+      this.destruido = this.destruido + 1;
     });
 
     // Quando o formulário_2 encostar no Lixo
@@ -295,6 +297,7 @@ class Netzero extends Phaser.Scene {
       setTimeout(tempoDecong, 1600);
       this.formulário_3.destroy();
       this.formAberto_3.destroy();
+      this.destruido = this.destruido + 1;
     });
 
     // Quando o formulário_4 encostar no Lixo
@@ -321,6 +324,7 @@ class Netzero extends Phaser.Scene {
       setTimeout(tempoDecong, 1600);
       this.formulário_2.destroy();
       this.formAberto_2.destroy();
+      this.destruido = this.destruido + 1;
     });
 
     // Quando o formulário_3 encostar no Aprovado
@@ -339,6 +343,7 @@ class Netzero extends Phaser.Scene {
       setTimeout(tempoDecong, 1600);
       this.formulário_4.destroy();
       this.formAberto_4.destroy();
+      this.destruido = this.destruido + 1;
     });
   }
 
@@ -346,7 +351,7 @@ class Netzero extends Phaser.Scene {
   update() {
     // Declarando as proximas Cenas
     if (this.destruido === 4) {
-      this.scene.stop("Netzero");
+      this.scene.start("CenaTeste");
     }
 
     // Arrastando o Formulário_1
@@ -354,29 +359,29 @@ class Netzero extends Phaser.Scene {
       this.formulário_1.x = this.input.x;
       this.formulário_1.y = this.input.y;
     }
-
+    
     // Arrastando o Formulário_2
     if (this.arrastof_2) {
       this.formulário_2.x = this.input.x;
       this.formulário_2.y = this.input.y;
     }
-
+    
     // Arrastando o Formulário_3
     if (this.arrastof_3) {
       this.formulário_3.x = this.input.x;
       this.formulário_3.y = this.input.y;
     }
-
+    
     // Arrastando o Formulário_4
     if (this.arrastof_4) {
       this.formulário_4.x = this.input.x;
       this.formulário_4.y = this.input.y;
     }
-
+    
     // Se o formAberto_1 entrar na area da Prancheta
     if (this.formulário_1.x > 950) {
       this.formulário_1.setScale(0.2);
-
+      
       if (!this.arrastof_1 && this.emcimap && !this.formA_1VisibleRecente) {
         this.formulário_1.setVisible(false);
         this.formAberto_1.x = this.input.x;
@@ -384,20 +389,20 @@ class Netzero extends Phaser.Scene {
         this.formAberto_1.setVisible(true);
         this.formA_1VisibleRecente = true;
       }
-
+      
       if (this.arrastoR1) {
         this.formAberto_1.x = this.input.x;
         this.formAberto_1.y = this.input.y;
         this.formulário_1.x = this.input.x;
         this.formulário_1.y = this.input.y;
       }
-
+      
       if (!this.arrastof_1) {
         this.formAberto_1.setVisible(true);
         this.formulário_1.setVisible(false);
       }
     }
-
+    
     // Se o formAberto_2 sair da Prancheta
     if (this.formulário_1.x < 950 || this.formAberto_1.x < 950) {
       this.formAberto_1.x = 960;
@@ -405,16 +410,16 @@ class Netzero extends Phaser.Scene {
       this.formAberto_1.setVisible(false);
       this.formulário_1.setVisible(true);
     }
-
+    
     // Reinicia a variável de controle do formAberto_1 após um curto período de tempo
     setTimeout(() => {
       this.formA_1VisibleRecently = false;
     }, 10);
-
+    
     // Se o formAberto_2 entrar na area da Prancheta
     if (this.formulário_2.x > 950) {
       this.formulário_2.setScale(0.2);
-
+      
       if (!this.arrastof_2 && this.emcimap && !this.formA_2VisibleRecente) {
         this.formulário_2.setVisible(false);
         this.formAberto_2.x = this.input.x;
@@ -422,20 +427,20 @@ class Netzero extends Phaser.Scene {
         this.formAberto_2.setVisible(true);
         this.formA_2VisibleRecente = true;
       }
-
+      
       if (this.arrastoR2) {
         this.formAberto_2.x = this.input.x;
         this.formAberto_2.y = this.input.y;
         this.formulário_2.x = this.input.x;
         this.formulário_2.y = this.input.y;
       }
-
+      
       if (!this.arrastof_2) {
         this.formAberto_2.setVisible(true);
         this.formulário_2.setVisible(false);
       }
     }
-
+    
     // Se o formAberto_2 sair da Prancheta
     if (this.formulário_2.x < 950 || this.formAberto_2.x < 950) {
       this.formAberto_2.x = 960;
@@ -443,16 +448,16 @@ class Netzero extends Phaser.Scene {
       this.formAberto_2.setVisible(false);
       this.formulário_2.setVisible(true);
     }
-
+    
     // Reinicia a variável de controle do formAberto_2 após um curto período de tempo
     setTimeout(() => {
       this.formA_2VisibleRecently = false;
     }, 10);
-
+    
     // Se o formAberto_3 entrar na area da Prancheta
     if (this.formulário_3.x > 950) {
       this.formulário_3.setScale(0.2);
-
+      
       if (!this.arrastof_3 && this.emcimap && !this.formA_3VisibleRecente) {
         this.formulário_3.setVisible(false);
         this.formAberto_3.x = this.input.x;
@@ -460,20 +465,20 @@ class Netzero extends Phaser.Scene {
         this.formAberto_3.setVisible(true);
         this.formA_3VisibleRecente = true;
       }
-
+      
       if (this.arrastoR3) {
         this.formAberto_3.x = this.input.x;
         this.formAberto_3.y = this.input.y;
         this.formulário_3.x = this.input.x;
         this.formulário_3.y = this.input.y;
       }
-
+      
       if (!this.arrastof_3) {
         this.formAberto_3.setVisible(true);
         this.formulário_3.setVisible(false);
       }
     }
-
+    
     // Se o formAberto_3 sair da Prancheta
     if (this.formulário_3.x < 950 || this.formAberto_3.x < 950) {
       this.formAberto_3.x = 960;
@@ -481,16 +486,16 @@ class Netzero extends Phaser.Scene {
       this.formAberto_3.setVisible(false);
       this.formulário_3.setVisible(true);
     }
-
+    
     // Reinicia a variável de controle do formAberto_3 após um curto período de tempo
     setTimeout(() => {
       this.formA_3VisibleRecently = false;
     }, 10);
-
+    
     // Se o formAberto_4 entrar na area da Prancheta
     if (this.formulário_4.x > 950) {
       this.formulário_4.setScale(0.2);
-
+      
       if (!this.arrastof_4 && this.emcimap && !this.formA_4VisibleRecente) {
         this.formulário_4.setVisible(false);
         this.formAberto_4.x = this.input.x;
@@ -498,20 +503,20 @@ class Netzero extends Phaser.Scene {
         this.formAberto_4.setVisible(true);
         this.formA_4VisibleRecente = true;
       }
-
+      
       if (this.arrastoR4) {
         this.formAberto_4.x = this.input.x;
         this.formAberto_4.y = this.input.y;
         this.formulário_4.x = this.input.x;
         this.formulário_4.y = this.input.y;
       }
-
+      
       if (!this.arrastof_4) {
         this.formAberto_4.setVisible(true);
         this.formulário_4.setVisible(false);
       }
     }
-
+    
     // Se o formAberto_4 sair da Prancheta
     if (this.formulário_4.x < 950 || this.formAberto_4.x < 950) {
       this.formAberto_4.x = 960;
@@ -519,20 +524,23 @@ class Netzero extends Phaser.Scene {
       this.formAberto_4.setVisible(false);
       this.formulário_4.setVisible(true);
     }
-
+    
     // Reinicia a variável de controle do formAberto_4 após um curto período de tempo
     setTimeout(() => {
       this.formA_4VisibleRecently = false;
     }, 10);
-
+    
     // Adicionando a Colisão entre os Formulários
     this.physics.add.collider(this.formulário_1, this.formulário_2);
     this.physics.add.collider(this.formulário_1, this.formulário_3);
     this.physics.add.collider(this.formulário_1, this.formulário_4);
-
+    
     this.physics.add.collider(this.formulário_2, this.formulário_3);
     this.physics.add.collider(this.formulário_2, this.formulário_4);
-
+    
     this.physics.add.collider(this.formulário_3, this.formulário_4);
+    
+      
+    }
   }
-}
+
